@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header h1 {
+  margin-bottom: 60px;
+  font-size: 40px;
+  font-weight: 340;
+  color: #454545;
+}
+
+.food {
+  position: absolute;
+  animation: food-animation 1.0s linear forwards;
+}
+
+#selected {
+  color: #FF9733;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  height: 40px;
+}
+
+#start {
+  font-size: 24px;
+  text-align: center;
+  border: none;
+  color: #454545;
+  background-color:#EFEFEF;
+  width: 140px;
+  height: 54px;
+  z-index: 1;
+}
+
+@keyframes food-animation {
+  from {
+    color: rgba(0, 0, 0, 1.0);
+  }
+  to {
+    color: rgba(0, 0, 0, 0.0);
+  }
+}
