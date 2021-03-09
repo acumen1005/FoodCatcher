@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   _getRandomNumber(baseNumber) {
-    return Math.ceil(Math.random() * (baseNumber || 1))
+    return Math.ceil(Math.random() * baseNumber)
   }
 
   handleStart() {
@@ -65,7 +65,7 @@ class App extends Component {
             r = this._getRandomNumber(list.length),
             food = defaultFoods[r - 1]
   
-        const rTop = this._getRandomNumber( windowHeight),
+        const rTop = this._getRandomNumber(windowHeight),
             rLeft = this._getRandomNumber(windowWidth - 50),
             rSize = this._getRandomNumber((44 - 14) + 14);
         
