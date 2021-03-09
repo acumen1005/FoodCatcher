@@ -21,9 +21,8 @@ const defaultFoods = [
 
 function FoodContent(props) {
   const items = props.items;
-  let spanStyle = {}
   const content = items.map(function (item) {
-    spanStyle = {
+    const spanStyle = {
       top: item.top,
       left: item.left, 
       fontSize: item.size + "px",
@@ -52,30 +51,28 @@ class App extends Component {
   componentDidMount() {
   }
 
-  _getRandomNumber(baseNumber) {
-    return Math.ceil(Math.random() * (baseNumber || 1))
-  }
-
   handleStart() {
     if (!this.state.run) {
       this.timer = setInterval(() => {
-        const list = defaultFoods,
+        var list = defaultFoods,
             windowHeight = window.innerHeight,
             windowWidth = window.innerWidth,
-            r = this._getRandomNumber(list.length),
+            r = Math.ceil(Math.random() * list.length),
             food = defaultFoods[r - 1]
   
-        const rTop = this._getRandomNumber( windowHeight),
-            rLeft = this._getRandomNumber(windowWidth - 50),
-            rSize = this._getRandomNumber((44 - 14) + 14);
+        var rTop = Math.ceil(Math.random() * windowHeight),
+            rLeft = Math.ceil(Math.random() * (windowWidth - 50)),
+            rSize = Math.ceil(Math.random() * ((44 - 14) + 14));
         
+        var items = this.state.items;
+        items.push({
+          'food': food,
+          'top': rTop,
+          'left': rLeft,
+          'size': rSize
+        })
         this.setState({ 
-          items: [...items, {
-            'food': food,
-            'top': rTop,
-            'left': rLeft,
-            'size': rSize
-          }],
+          items: items,
           selectedFood: food
         });
       }, 60);
